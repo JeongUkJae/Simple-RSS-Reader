@@ -1,0 +1,17 @@
+{
+  "name": "simple-rss-reader",
+  "version": "0.0.1",
+  "description": "A Simple App for RSS Feeds",
+  "main": "source/main-process/main.js",
+  "author": "JeongUkJae <jeongukjae@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron source/main-process/main.js"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  },
+  "dependencies": {
+    "electron": "^1.8.4"
+  }
+}
