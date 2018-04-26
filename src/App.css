@@ -1,0 +1,22 @@
+.feeders {
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  width: 80px;
+  background-color: #fff;
+}
+
+.news {
+  position: absolute;
+  top: 0;
+  left: 80px;
+  bottom: 0;
+  right: 0;
+  background-color: #FAFAFA;
+}
+
+.draggableBar {
+  -webkit-app-region: drag;
+  height: 40px;
+}
