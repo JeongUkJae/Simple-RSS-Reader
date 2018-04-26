@@ -2,16 +2,44 @@
   "name": "simple-rss-reader",
   "version": "0.0.1",
   "description": "A Simple App for RSS Feeds",
-  "main": "source/main-process/main.js",
   "author": "JeongUkJae <jeongukjae@gmail.com>",
   "license": "MIT",
+  "main": "app/main.js",
+  "homepage": "./",
   "scripts": {
-    "start": "electron source/main-process/main.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-build": "electron-builder",
+    "preelectron-build": "yarn build"
   },
   "devDependencies": {
-    "eslint": "^4.19.1"
+    "concurrently": "^3.5.1",
+    "electron": "^1.8.4",
+    "electron-builder": "^20.10.0",
+    "wait-on": "^2.1.0"
   },
   "dependencies": {
-    "electron": "^1.8.4"
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-scripts": "1.1.4",
+    "electron-is-dev": "^0.3.0"
+  },
+  "build": {
+    "appId": "jeongukjae.simple-rss-reader",
+    "productName": "Simple RSS Reader",
+    "files": [
+      "app/**/*",
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "extraMetadata": {
+      "main": "app/main.js"
+    },
+    "directories":{
+      "buildResources": "assets"
+    }
   }
 }
