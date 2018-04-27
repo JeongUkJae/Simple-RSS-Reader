@@ -5,6 +5,13 @@
   bottom:0;
   width: 80px;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.feeders-contents {
+  overflow-y: scroll;
+  flex-grow: 1;
 }
 
 .news {

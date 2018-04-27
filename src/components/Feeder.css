@@ -1,4 +1,21 @@
 .feeder {
   width: 100%;
-  
+  padding-top: 100%;
+  position: relative;
+}
+
+.feeder > div {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  box-sizing: border-box;
+}
+
+.feeder > div > img {
+  --image-margin: 17px;
+  width: calc(100% - var(--image-margin) * 2);
+  height: calc(100% - var(--image-margin) * 2);
+  margin: var(--image-margin);
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 1px solid #ccc;
 }
