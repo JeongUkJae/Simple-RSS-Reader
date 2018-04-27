@@ -11,8 +11,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <aside className='feeders'>
-          <div className='draggableBar' />
-          
+          <div className='draggableBar h40 fixed' />
           <div className='feeders-contents'>
             <Feeder />
             <Feeder />
@@ -27,7 +26,10 @@ class App extends Component {
           </div>
         </aside>
         <article className='news'>
-          <div className='draggableBar' />
+          <div className='draggableBar news-title'>
+            <h1>Title <a className='link'>https://link</a></h1>
+            <p>Description</p>
+          </div>
         </article>
       </React.Fragment>
     );

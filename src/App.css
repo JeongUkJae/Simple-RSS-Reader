@@ -10,8 +10,13 @@
 }
 
 .feeders-contents {
+  margin-top:40px;
   overflow-y: scroll;
   flex-grow: 1;
+}
+
+.feeders-contents::-webkit-scrollbar { 
+  display: none; 
 }
 
 .news {
@@ -23,7 +28,28 @@
   background-color: #FAFAFA;
 }
 
+.news-title {
+  padding: 5px 20px;
+}
+
+.news-title .link {
+  font-size: 0.6em;
+  text-decoration: underline;
+  font-weight: 100;
+  color: gray;
+}
+
 .draggableBar {
   -webkit-app-region: drag;
+}
+
+.draggableBar.h40 {
   height: 40px;
+}
+
+.draggableBar.fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
