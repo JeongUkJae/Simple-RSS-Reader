@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import './Feeder.css';
+import React, { Component } from "react";
+import "./Feeder.css";
 
 class Feeder extends Component {
-  render () {
+  render() {
     return (
-      <div className='feeder'>
+      <div className="feeder">
         <div>
-          <img alt='feeder avatar'/>
+          <img alt="feeder avatar" />
         </div>
       </div>
     );

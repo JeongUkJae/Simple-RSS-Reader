@@ -1,18 +1,14 @@
-import React, { Component } from 'react';
-import './App.css';
-import Feeder from './components/Feeder';
+import React, { Component } from "react";
+import "./App.css";
+import Feeder from "./components/Feeder";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <React.Fragment>
-        <aside className='feeders'>
-          <div className='draggableBar h40 fixed' />
-          <div className='feeders-contents'>
+        <aside className="feeders">
+          <div className="draggableBar h40 fixed" />
+          <div className="feeders-contents">
             <Feeder />
             <Feeder />
             <Feeder />
@@ -25,9 +21,11 @@ class App extends Component {
             <Feeder />
           </div>
         </aside>
-        <article className='news'>
-          <div className='draggableBar news-title'>
-            <h1>Title <a className='link'>https://link</a></h1>
+        <article className="news">
+          <div className="draggableBar news-title">
+            <h1>
+              Title <a className="link">https://link</a>
+            </h1>
             <p>Description</p>
           </div>
         </article>

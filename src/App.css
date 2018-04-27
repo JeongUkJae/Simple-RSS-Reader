@@ -1,8 +1,8 @@
 .feeders {
   position: absolute;
-  top:0;
-  left:0;
-  bottom:0;
+  top: 0;
+  left: 0;
+  bottom: 0;
   width: 80px;
   background-color: #fff;
   display: flex;
@@ -10,13 +10,13 @@
 }
 
 .feeders-contents {
-  margin-top:40px;
+  margin-top: 40px;
   overflow-y: scroll;
   flex-grow: 1;
 }
 
-.feeders-contents::-webkit-scrollbar { 
-  display: none; 
+.feeders-contents::-webkit-scrollbar {
+  display: none;
 }
 
 .news {
@@ -25,7 +25,7 @@
   left: 80px;
   bottom: 0;
   right: 0;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
 }
 
 .news-title {
