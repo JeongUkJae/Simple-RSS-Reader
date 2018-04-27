@@ -1,8 +1,22 @@
 import React, { Component } from "react";
+import { ipcRenderer } from "electron";
+
 import "./App.css";
 import Feeder from "./components/Feeder";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    ipcRenderer.on("ask-register-protocol", (event, args) => {
+      let result = window.confirm('Do you want to register Simple RSS Reader as default RSS feed protocol client?')
+    });
+  }
+
+  componentDidMount() {
+    ipcRenderer.send("on-ready");
+  }
+
   render() {
     return (
       <React.Fragment>
