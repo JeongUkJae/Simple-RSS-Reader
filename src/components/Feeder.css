@@ -1,24 +1,53 @@
 .feeder {
   width: 100%;
-  padding-top: 100%;
-  position: relative;
+  height: 80px;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-right: 15px;
+  transition: all .3s ease;
 }
 
-.feeder > div {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  box-sizing: border-box;
+.feeder.active {
+  background: #eee;
 }
 
-.feeder > div > img {
+.feeder:hover {
+  background: #ddd;
+}
+
+.feeder > * {
+  vertical-align: middle;
+}
+
+.feeder > div:first-child {
   --image-margin: 17px;
-  width: calc(100% - var(--image-margin) * 2);
-  height: calc(100% - var(--image-margin) * 2);
   margin: var(--image-margin);
+  width: calc(80px - var(--image-margin) * 2);
+  height: calc(80px - var(--image-margin) * 2);
   box-sizing: border-box;
   border-radius: 50%;
-  border: 1px solid #ccc;
+  border: 1px solid #eee;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+
+.feeder > div:first-child > img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.feeder > span {
+  display: inline-block;
+  width: calc(100% - 80px);
+  text-overflow: ellipsis;
 }

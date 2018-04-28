@@ -3,10 +3,20 @@
   top: 0;
   left: 0;
   bottom: 0;
-  width: 80px;
+  z-index: 2;
+  width: auto;
+  min-width: 80px;
+  max-width: 80px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+}
+
+.feeders:hover {
+  max-width: 100%;
+  transition: all 1s ease;
 }
 
 .feeders-contents {
@@ -29,10 +39,20 @@
 }
 
 .news-title {
-  padding: 5px 20px;
+  padding: 10px 20px 10px 20px;
+}
+
+.news-title > h1 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.news-title > p {
+  font-size: 0.8em;
 }
 
 .news-title .link {
+  margin-left: 10px;
   font-size: 0.6em;
   text-decoration: underline;
   font-weight: 100;
