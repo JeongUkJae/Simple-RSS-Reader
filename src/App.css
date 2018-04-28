@@ -36,19 +36,28 @@
   bottom: 0;
   right: 0;
   background-color: #fafafa;
+  overflow-y: scroll;
 }
 
 .news-title {
   padding: 10px 20px 10px 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
 }
 
 .news-title > h1 {
   margin-bottom: 10px;
   font-size: 1.2em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .news-title > p {
   font-size: 0.8em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .news-title .link {
@@ -59,12 +68,24 @@
   color: gray;
 }
 
+.news-contents {
+  margin-top: 75px;
+  height: calc(100% - 75px);
+  overflow: scroll;
+  box-sizing: border-box;
+}
+
 .draggableBar {
   -webkit-app-region: drag;
+  overflow: hidden;
 }
 
 .draggableBar.h40 {
   height: 40px;
+}
+
+.draggableBar.h75 {
+  height: 75px;
 }
 
 .draggableBar.fixed {

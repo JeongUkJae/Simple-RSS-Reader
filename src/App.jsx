@@ -3,6 +3,7 @@ import { ipcRenderer } from "electron";
 
 import "./App.css";
 import Feeder from "./components/Feeder";
+import News from "./components/News";
 
 class App extends Component {
   constructor(props) {
@@ -53,19 +54,23 @@ class App extends Component {
               <Feeder
                 key={index}
                 image={value.image}
-                active={true}
+                active={index === feedIndex}
                 onClick={() => this.setState({ feedIndex: index })}
               />
             ))}
           </div>
         </aside>
         <article className="news">
-          <div className="draggableBar news-title">
-            { feeders[feedIndex] ? (
+          <div className="draggableBar news-title fixed h75">
+            {feeders[feedIndex] ? (
               <React.Fragment>
                 <h1>
                   {feeders[feedIndex].title}
-                  <a className="link" href={feeders[feedIndex].link} target='_black'>
+                  <a
+                    className="link"
+                    href={feeders[feedIndex].link}
+                    target="_black"
+                  >
                     {feeders[feedIndex].link}
                   </a>
                 </h1>
@@ -77,6 +82,14 @@ class App extends Component {
                 <p />
               </React.Fragment>
             )}
+          </div>
+          <div className="news-contents">
+            {feeders[feedIndex] ? feeders[feedIndex].items.map((value, index) => (
+              <News
+                key={index}
+                item={value}
+              />
+            )) : ""}
           </div>
         </article>
       </React.Fragment>

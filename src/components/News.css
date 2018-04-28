@@ -1,2 +1,40 @@
 .news-item {
+  padding: 10px 20px;
+  border-bottom: 1px solid #eaeaea;
+  cursor: pointer;
+}
+
+.news-item:last-child {
+  border-bottom: none;
+  margin-bottom: 10px;
+}
+
+.news-item:hover {
+  text-decoration: underline;
+  background: #f0f0f0;
+}
+
+.news-item-title {
+  font-weight: 700;
+  font-size: 1.2em;
+  letter-spacing: 0.3px;
+  margin-bottom: 5px;
+}
+
+.news-item-description {
+  font-weight: 100;
+  font-size: 0.9em;
+  letter-spacing: 0.3px;
+  line-height: 1.4em;
+}
+
+.news-item-extra-info {
+  font-weight: 100;
+  font-size: 0.8em;
+  letter-spacing: 0.3px;
+  color: gray;
+}
+
+.news-item-extra-info span {
+  margin-right: 10px;
 }

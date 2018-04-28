@@ -1,5 +1,6 @@
 const { app, ipcMain } = require("electron");
 const { parseXml } = require("./xml-parser");
+const htmlToText = require("html-to-text");
 const { insertFeeder, getFeeders } = require("./db");
 
 module.exports = {
@@ -10,7 +11,14 @@ module.exports = {
         app.setAsDefaultProtocolClient("feed");
       });
       ipcMain.on("add-new-feeder", (event, args) => {
-        parseXml(args.url.replace("feed:", ""), result => {
+        let _url = args.url.split("://");
+        let protocol = "http";
+        if (_url[0].includes("https:")) {
+          protocol = "https";
+        }
+        _url = `${protocol}://${_url[1]}`;
+
+        parseXml(_url, result => {
           const channel = result.rss.channel[0];
           const meta = {
             url: args.url,
@@ -18,14 +26,37 @@ module.exports = {
             link: channel.link[0],
             description: channel.description[0],
             language: channel.language && channel.language[0],
-            image: channel.image ? {
-              url: channel.image[0].url[0],
-              title: channel.image[0].title[0],
-              link: channel.image[0].link[0]
-            } : {}
+            image: channel.image
+              ? {
+                  url: channel.image[0].url[0],
+                  title: channel.image[0].title[0],
+                  link: channel.image[0].link[0]
+                }
+              : {}
           };
 
+          let items = channel.item.map(value => {
+            let description = htmlToText.fromString(value.description[0], {
+              ignoreImage: true
+            })
+            if (description.length > 200) {
+              description = `${description.substring(0, 200)}...`
+            }
+            return {
+              title: value.title[0],
+              link: value.link[0],
+              description,
+              author: value.author ? value.author[0] : "",
+              pubDate: value.pubDate ? value.pubDate[0] : ""
+            }
+          });
+
+          meta.items = items;
+
           insertFeeder(meta);
+
+          let feeders = getFeeders();
+          event.sender.send("read-feeders", { feeders });
         });
       });
 
@@ -35,7 +66,7 @@ module.exports = {
       }
 
       let feeders = getFeeders();
-      event.sender.send('read-feeders', {feeders});
+      event.sender.send("read-feeders", { feeders });
 
       if (callback) {
         callback();
