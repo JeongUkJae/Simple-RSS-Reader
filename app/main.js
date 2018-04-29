@@ -6,7 +6,6 @@ const path = require("path");
 const url = require("url");
 
 const ipcModule = require("./ipc");
-const db = require("./db");
 
 let mainWindow = null;
 
@@ -14,15 +13,14 @@ function createWindow(callback = undefined) {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    titleBarStyle: "hiddenInset",
-    icon: "./logo.png"
+    titleBarStyle: "hiddenInset"
   });
 
   mainWindow.loadURL(
     isDev
       ? "http://localhost:3000"
       : url.format({
-          pathname: path.join(__dirname, "../public/index.html"),
+          pathname: path.join(__dirname, "../build/index.html"),
           protocol: "file:",
           slashes: true
         })

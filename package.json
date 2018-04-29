@@ -8,11 +8,11 @@
   "homepage": "./",
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build:react": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
-    "electron-build": "electron-builder",
-    "preelectron-build": "yarn build"
+    "build": "electron-builder",
+    "prebuild": "yarn build:react"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
