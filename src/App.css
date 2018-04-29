@@ -94,3 +94,16 @@
   left: 0;
   right: 0;
 }
+
+.delete_button {
+  background:transparent;
+  border: none;
+  color: red;
+  margin-left: 5px;
+  font-size: 0.6em;
+  outline: none !important;
+}
+
+.delete_button:hover {
+  text-decoration: underline;
+}

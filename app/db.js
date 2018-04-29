@@ -46,5 +46,8 @@ module.exports = {
     newItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
     el.assign(Object.assign({}, data, { items: newItems })).write();
+  },
+  deleteFeeder: url => {
+    db.get("feeders").remove({ url }).write();
   }
 };

@@ -43,6 +43,17 @@ class App extends Component {
     ipcRenderer.send("on-ready");
   }
 
+  handleDelete = () => {
+    let feeder = this.state.feeders[this.state.feedIndex];
+    let result = window.confirm(
+      `Do you want to delete a feeder "${feeder.title}?"`
+    );
+    if (result) {
+      ipcRenderer.send("delete-feeder", { url: feeder.url });
+      this.setState({feedIndex: 0});
+    }
+  };
+
   render() {
     let { feeders, feedIndex } = this.state;
     return (
@@ -54,6 +65,7 @@ class App extends Component {
               <Feeder
                 key={index}
                 image={value.image}
+                title={value.title}
                 active={index === feedIndex}
                 onClick={() => this.setState({ feedIndex: index })}
               />
@@ -73,6 +85,9 @@ class App extends Component {
                   >
                     {feeders[feedIndex].link}
                   </a>
+                  <button className="delete_button" onClick={this.handleDelete}>
+                    DELETE
+                  </button>
                 </h1>
                 <p>{feeders[feedIndex].description}</p>
               </React.Fragment>
@@ -84,12 +99,11 @@ class App extends Component {
             )}
           </div>
           <div className="news-contents">
-            {feeders[feedIndex] ? feeders[feedIndex].items.map((value, index) => (
-              <News
-                key={index}
-                item={value}
-              />
-            )) : ""}
+            {feeders[feedIndex]
+              ? feeders[feedIndex].items.map((value, index) => (
+                  <News key={index} item={value} />
+                ))
+              : ""}
           </div>
         </article>
       </React.Fragment>

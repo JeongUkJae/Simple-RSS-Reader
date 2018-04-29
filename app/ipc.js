@@ -1,7 +1,12 @@
 const { app, ipcMain } = require("electron");
 const { parseXml } = require("./xml-parser");
 const htmlToText = require("html-to-text");
-const { insertFeeder, getFeeders, updateFeeder } = require("./db");
+const {
+  insertFeeder,
+  getFeeders,
+  updateFeeder,
+  deleteFeeder
+} = require("./db");
 
 function getUrl(url) {
   let _url = url.split("://");
@@ -18,6 +23,12 @@ module.exports = {
       // register ipc event
       ipcMain.on("register-protocol", (event, args) => {
         app.setAsDefaultProtocolClient("feed");
+      });
+      ipcMain.on("delete-feeder", (event, args) => {
+        deleteFeeder(args.url);
+
+        let feeders = getFeeders();
+        event.sender.send("read-feeders", { feeders });
       });
       ipcMain.on("add-new-feeder", (event, args) => {
         parseXml(getUrl(args.url), result => {
