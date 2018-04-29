@@ -2,12 +2,9 @@
 
 RSS Reader for macOS.
 
-<center>
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-![logo](./app/logo.png)
 ![Screen Shot of app](./images/app.png)
-
-</center>
 
 ## Stack
 
