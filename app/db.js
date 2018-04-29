@@ -25,8 +25,26 @@ module.exports = {
       .push(data)
       .write();
   },
-  getFeeders: () => (
-    db.get("feeders")
-      .value()
-  )
+  getFeeders: () => db.get("feeders").value(),
+  updateFeeder: data => {
+    const el = db.get("feeders").find({ url: data.url });
+    const result = el.value();
+
+    let newItems = result.items;
+    let links = newItems.map(value => value.link);
+
+    for (let item of data.items) {
+      if (links.includes(item.link)) {
+        newItems = newItems.map(
+          value => (value.link === item.link ? item : value)
+        );
+      } else {
+        newItems.push(item);
+      }
+    }
+
+    newItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
+    el.assign(Object.assign({}, data, { items: newItems })).write();
+  }
 };

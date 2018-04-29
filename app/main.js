@@ -36,10 +36,6 @@ function createWindow(callback = undefined) {
     open(url);
   });
 
-  if (isDev) {
-    app.removeAsDefaultProtocolClient("feed");
-  }
-
   callback ? ipcModule.register(callback) : ipcModule.register();
 }
 
