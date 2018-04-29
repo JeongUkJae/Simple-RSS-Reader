@@ -6,14 +6,22 @@ import "./Feeder.css";
 
 class Feeder extends Component {
   render() {
-    let { image, active, onClick } = this.props;
+    let { title, image, active, onClick } = this.props;
 
     return (
       <div className={`feeder${active ? ' active' : ''}`} onClick={onClick}>
         <div>
-          <img alt={`"${image.title}"'s avatar`} src={image.url} />
+          {
+            image.title ? (
+              <img alt={`"${image.title}"'s avatar`} src={image.url} />
+            ) : (
+              <div className='img-wrapper'>
+                <div className='img'>{title.substr(0, 2)}</div>
+              </div>
+            )
+          }
         </div>
-        <span>{image.title}</span>
+        <span>{title}</span>
       </div>
     );
   }
@@ -22,7 +30,8 @@ class Feeder extends Component {
 Feeder.propTypes = {
   image: PropTypes.object.isRequired,
   active: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  title: PropTypes.string
 }
 
 export default Feeder;

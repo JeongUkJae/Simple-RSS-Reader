@@ -51,3 +51,15 @@
   width: calc(100% - 80px);
   text-overflow: ellipsis;
 }
+
+.feeder .img {
+  vertical-align: middle;
+  display: table-cell;
+  text-align: center;
+}
+
+.feeder .img-wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
