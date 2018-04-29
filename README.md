@@ -10,3 +10,11 @@ RSS Reader for macOS.
 
 * [electron](https://github.com/electron/electron)
 * [react](https://github.com/facebook/react)
+
+## Download
+
+goto [releases](https://github.com/JeongUkJae/Simple-RSS-Reader/releases)
+
+## ...
+
+걍 저 쓰려고 만들었어요.
