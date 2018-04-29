@@ -14,7 +14,8 @@ function createWindow(callback = undefined) {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    titleBarStyle: "hiddenInset"
+    titleBarStyle: "hiddenInset",
+    icon: "./logo.png"
   });
 
   mainWindow.loadURL(
