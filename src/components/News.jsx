@@ -18,8 +18,8 @@ class News extends Component {
   }
 
   handleClick = () => {
-    window.open(this.props.item.link, '_blank')
-  }
+    window.open(this.props.item.link, "_blank");
+  };
 }
 
 News.propTypes = {

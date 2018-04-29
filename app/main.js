@@ -6,7 +6,7 @@ const path = require("path");
 const url = require("url");
 
 const ipcModule = require("./ipc");
-const db = require('./db');
+const db = require("./db");
 
 let mainWindow = null;
 
@@ -31,7 +31,7 @@ function createWindow(callback = undefined) {
     mainWindow = null;
   });
 
-  mainWindow.webContents.on('new-window', function(event, url){
+  mainWindow.webContents.on("new-window", function(event, url) {
     event.preventDefault();
     open(url);
   });

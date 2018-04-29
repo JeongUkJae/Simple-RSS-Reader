@@ -50,7 +50,7 @@ class App extends Component {
     );
     if (result) {
       ipcRenderer.send("delete-feeder", { url: feeder.url });
-      this.setState({feedIndex: 0});
+      this.setState({ feedIndex: 0 });
     }
   };
 

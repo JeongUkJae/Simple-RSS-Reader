@@ -48,6 +48,9 @@ module.exports = {
     el.assign(Object.assign({}, data, { items: newItems })).write();
   },
   deleteFeeder: url => {
-    db.get("feeders").remove({ url }).write();
+    db
+      .get("feeders")
+      .remove({ url })
+      .write();
   }
 };
