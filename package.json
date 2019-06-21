@@ -51,7 +51,7 @@
     "jest": "20.0.4",
     "lowdb": "^1.0.0",
     "object-assign": "4.1.1",
-    "open": "^0.0.5",
+    "open": "^6.0.0",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
